@@ -31,7 +31,7 @@ export async function GET(
         logo: string;
         symbol: string;
         id: number;
-        name: string;
+        slug: string;
       }[] = data?.data?.[query.toUpperCase()];
 
       return dataArray?.map((item) => {
@@ -39,7 +39,7 @@ export async function GET(
           logo: item.logo,
           symbol: item.symbol,
           id: item.id,
-          name: item.name,
+          name: item.slug,
         };
       });
     })(),
