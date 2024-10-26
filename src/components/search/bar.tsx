@@ -5,7 +5,7 @@ import { Input } from "../ui/input";
 import { useDebouncedCallback } from "use-debounce";
 import { useEffect, useState } from "react";
 import { useQueries } from "@tanstack/react-query";
-import { CryptoItem } from "./crypto-item";
+import { CryptoItem, CryptoItemSkeleton } from "./crypto-item";
 import { ScrollArea } from "../ui/scroll-area";
 
 interface SearchDataProps {
@@ -62,6 +62,7 @@ export function SearchData({ query, amount }: SearchDataProps) {
             />
           );
         })}
+        {!data?.data && <CryptoItemSkeleton></CryptoItemSkeleton>}
       </div>
     </ScrollArea>
   );

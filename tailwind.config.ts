@@ -65,13 +65,17 @@ const config: Config = {
       },
       "item-appear": {
         "0%": { transform: "scaleX(0)", opacity: "0" },
-
         "100%": { transform: "scaleX(1)", opacity: "1" },
+      },
+      "infinite-loading": {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" },
       },
     },
     animation: {
       "background-pan": "background-pan 8s ease infinite alternate",
-      "item-appers": "item-appear 0.5s ease-in-out",
+      "item-appear": "item-appear 0.5s ease-in-out",
+      "infinite-loading": "infinite-loading 1s linear infinite",
     },
   },
   plugins: [require("tailwindcss-animate")],
