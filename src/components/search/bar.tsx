@@ -36,7 +36,6 @@ export function SearchData({ query, amount }: SearchDataProps) {
       },
     ],
   });
-  console.log(data.data);
 
   return (
     <ScrollArea className="h-[500px]">
