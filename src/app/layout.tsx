@@ -5,7 +5,7 @@ const rubic = Rubik_Wet_Paint({ subsets: ["latin"], weight: ["400"] });
 import "./globals.css";
 import Provider from "@/lib/providers/reactQueryProvider";
 import { ChangeDarkMode } from "@/components/switch-dark";
-import { cookies } from "next/headers";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,16 +17,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookie = await cookies();
-  const darkMode = cookie.get("dark-mode");
-
   return (
-    <html lang="en">
-      <body
-        className={`${rubic.className} antialiased ${
-          darkMode?.value === "true" ? "dark" : ""
-        }`}
-      >
+    <html suppressHydrationWarning lang="en">
+      <body className={`${rubic.className} antialiased`}>
         <div className=" min-h-screen flex flex-col gap-14 md:gap-28 justify-center items-center dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-900 dark:to-black bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300">
           <div className="pt-10 md:pt-0 flex flex-col items-center font-bold">
             <h1 className="text-4xl font-bold text-red-800">
@@ -36,8 +29,11 @@ export default async function RootLayout({
               (Powered By CoinMarketCap API)
             </h1>
           </div>
-          <Provider>{children}</Provider>
-          <ChangeDarkMode></ChangeDarkMode>
+
+          <ThemeProvider attribute="class">
+            <Provider>{children}</Provider>
+            <ChangeDarkMode></ChangeDarkMode>
+          </ThemeProvider>
         </div>
       </body>
     </html>
