@@ -31,10 +31,12 @@ export function SearchData({ query, amount }: SearchDataProps) {
 
           return json;
         },
+        enabled: !!query,
         refetchInterval: 60 * 1000,
       },
     ],
   });
+  console.log(data.data);
 
   return (
     <ScrollArea className="h-[500px]">
@@ -62,7 +64,7 @@ export function SearchData({ query, amount }: SearchDataProps) {
             />
           );
         })}
-        {!data?.data && <CryptoItemSkeleton></CryptoItemSkeleton>}
+        {!data?.data && query && <CryptoItemSkeleton></CryptoItemSkeleton>}
       </div>
     </ScrollArea>
   );
