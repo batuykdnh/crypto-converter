@@ -27,8 +27,8 @@ export default async function RootLayout({
           darkMode?.value === "true" ? "dark" : ""
         }`}
       >
-        <div className=" h-screen flex flex-col gap-28 justify-center items-center dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-900 dark:to-black bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300">
-          <div className="flex flex-col items-center font-bold">
+        <div className=" min-h-screen flex flex-col gap-14 md:gap-28 justify-center items-center dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-900 dark:to-black bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300">
+          <div className="pt-10 md:pt-0 flex flex-col items-center font-bold">
             <h1 className="text-4xl font-bold text-red-800">
               Crypto Converter
             </h1>

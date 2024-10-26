@@ -38,7 +38,7 @@ export function SearchData({ query, amount }: SearchDataProps) {
   });
 
   return (
-    <ScrollArea className="h-[500px]">
+    <ScrollArea className="h-[300px] md:h-[500px]">
       <div className="flex flex-col  gap-3">
         {data?.data?.map((item) => {
           const fiatAmount = item.price * amount;
