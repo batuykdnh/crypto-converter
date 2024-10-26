@@ -1,13 +1,11 @@
 "use client";
-import { getCookie } from "cookies-next";
 import { Button } from "./ui/button";
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 export function ChangeDarkMode() {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-
+  const { setTheme } = useTheme();
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true);
