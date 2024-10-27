@@ -11,28 +11,30 @@ export function ChangeDarkMode() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <>
-      <Button
-        onClick={() => {
-          setTheme("light");
-        }}
-        className="hidden dark:block dark:bg-black text-white hover:bg-black"
-      >
-        Dark
-      </Button>
-      <Button
-        onClick={() => {
-          setTheme("dark");
-        }}
-        className="block text-black hover:bg-white bg-white dark:hidden "
-      >
-        Light
-      </Button>
+      {!mounted ? (
+        <Button className="bg-black text-white">System</Button>
+      ) : (
+        <>
+          <Button
+            onClick={() => {
+              setTheme("light");
+            }}
+            className="hidden dark:block dark:bg-black text-white hover:bg-black"
+          >
+            Dark
+          </Button>
+          <Button
+            onClick={() => {
+              setTheme("dark");
+            }}
+            className="block text-black hover:bg-white bg-white dark:hidden "
+          >
+            Light
+          </Button>
+        </>
+      )}
     </>
   );
 }
