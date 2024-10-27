@@ -1,6 +1,4 @@
-import { SearchBar } from "../search/bar";
 import { Input } from "../ui/input";
-import { Skeleton } from "../ui/skeleton";
 
 export function SearchBarSkeleton() {
   return (
